@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightSmile Dental Studio | Modern Dental Care</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & BASE STYLES (Easily change theme accent colors here)
+       ========================================================================== */
+    :root {
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0284c7;       /* Primary Cyan/Blue */
+      --primary-hover: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #06b6d4;        /* Cyan Accent */
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(14, 165, 233, 0.1);
+      --shadow-lg: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* ==========================================================================
+       2. TYPOGRAPHY & BUTTONS
+       ========================================================================== */
+    .section-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: None;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg-white);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       3. DEMO BANNER
+       ========================================================================== */
+    .demo-top-banner {
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      padding: 0.5rem 0;
+      text-align: center;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .demo-top-banner strong {
+      color: #38bdf8;
+    }
+
+    /* ==========================================================================
+       4. NAVBAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 4rem 0 5rem 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-trust-indicators {
+      display: flex;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .trust-item span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+      height: 480px;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--bg-white);
+      padding: 1.25rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .hero-floating-card i {
+      font-size: 2rem;
+      color: #10b981;
+    }
+
+    /* ==========================================================================
+       6. SERVICES SECTION
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-learn-more {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    /* ==========================================================================
+       7. ABOUT & WHY CHOOSE US
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card i {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       8. BEFORE / AFTER SLIDER
+       ========================================================================== */
+    .before-after-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      user-select: none;
+      height: 420px;
+      background: #e2e8f0;
+    }
+
+    .ba-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ba-after-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      border-right: 3px solid var(--bg-white);
+    }
+
+    .ba-after-wrapper img {
+      width: 800px; /* Must match container max-width */
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ba-slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      width: 4px;
+      background: var(--bg-white);
+      cursor: ew-resize;
+      z-index: 10;
+    }
+
+    .ba-slider-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      font-size: 0.9rem;
+    }
+
+    .ba-label {
+      position: absolute;
+      bottom: 15px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 5;
+    }
+
+    .ba-label-before { right: 15px; }
+    .ba-label-after { left: 15px; }
+
+    /* Range slider overlay for direct touch drag */
+    .ba-range-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 20;
+    }
+
+    /* ==========================================================================
+       9. DOCTORS SECTION
+       ========================================================================== */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .doctor-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .doctor-img-wrapper {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .doctor-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .doctor-card:hover .doctor-img-wrapper img {
+      transform: scale(1.04);
+    }
+
+    .doctor-info {
+      padding: 1.5rem;
+    }
+
+    .doctor-info h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .doctor-specialty {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .doctor-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ==========================================================================
+       10. TESTIMONIALS CAROUSEL
+       ========================================================================== */
+    .testimonials-wrapper {
+      max-width: 750px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      position: relative;
+    }
+
+    .testimonial-stars {
+      color: #f59e0b;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ==========================================================================
+       11. FAQ ACCORDION
+       ========================================================================== */
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* ==========================================================================
+       12. APPOINTMENT BOOKING & CONTACT
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .appointment-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-info-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .info-item i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-top: 0.2rem;
+    }
+
+    .info-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .quick-contact-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+     /* ==========================================================================
+       13. MODALS & TOASTS
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0f172a;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast i { color: #10b981; }
+
+    /* ==========================================================================
+       14. FOOTER
+       ========================================================================== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 4rem 0 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-logo i { color: var(--primary); }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Back to Top Floating Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       15. RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        display: none;
+      }
+
+      .nav-links.active { display: flex; }
+      .mobile-toggle { display: block; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .ba-after-wrapper img { width: 100vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <i class="fa-solid fa-tooth"></i> <span id="footer-brand">BrightSmile</span>
+          </div>
+          <p id="footer-tagline" style="margin-bottom:1.5rem;">Providing high-quality modern dental care in a comfortable environment.</p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#doctors">Our Dentists</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Treatments</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Teeth Cleaning</a></li>
+            <li><a href="#services">Dental Implants</a></li>
+            <li><a href="#services">Root Canal</a></li>
+            <li><a href="#services">Teeth Whitening</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact Us</h4>
+          <p style="margin-bottom:0.5rem;" id="footer-phone"></p>
+          <p id="footer-email"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> <span id="footer-copy-name">BrightSmile Dental Studio</span>. Demo Website for Showcase.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL WINDOW FOR SERVICE / DOCTOR DETAILS -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="modal-title" style="font-size:1.4rem; font-weight:800; margin-bottom:0.75rem;">Modal Title</h3>
+      <div id="modal-body" style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+        Modal body content goes here...
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-message">Action successful!</span>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+  <!-- ==========================================================================
+     16. CENTRALIZED CONFIGURATION & JAVASCRIPT LOGIC
+     ========================================================================== -->
+  <script>
+    /* 
+      ==========================================================================
+      EDIT ALL DEMO CLINIC INFORMATION IN THIS CONFIGURATION OBJECT BELOW
+      ==========================================================================
+    */
+    const CLINIC_CONFIG = {
+      clinicName: "BrightSmile Dental Studio",
+      tagline: "Modern Dentistry. Healthier Smiles.",
+      phone: "+91 98765 43210",
+      whatsappNumber: "919876543210", // No plus sign or spaces
+      email: "hello@brightsmile.example",
+      address: "102, Ocean Drive Medical Center, Bandra West, Mumbai, India",
+      openingHours: "Mon - Sat: 10:00 AM - 8:00 PM (Sunday Closed)",
+      
+      // Services Array
+      services: [
+        {
+          id: 's1',
+          name: "General Dentistry",
+          icon: "fa-tooth",
+          shortDesc: "Routine exams, digital X-rays, cavity fillings, and preventative dental care.",
+          fullDesc: "Our general dentistry services focus on early prevention and keeping your teeth healthy. We perform gentle cleanings, tooth-colored restorations, and comprehensive checkups using low-radiation digital imaging."
+        },
+        {
+          id: 's2',
+          name: "Teeth Cleaning & Polishing",
+          icon: "fa-pump-soap",
+          shortDesc: "Remove stubborn plaque and tartar stains for a refreshed, clean smile.",
+          fullDesc: "Professional ultrasonic scaling removes tartar buildup that regular brushing misses. Polishing leaves your teeth smooth and glossy while protecting your gums against disease."
+        },
+        {
+          id: 's3',
+          name: "Dental Implants",
+          icon: "fa-screwdriver",
+          shortDesc: "Permanent, natural-looking tooth replacements for missing or damaged teeth.",
+          fullDesc: "Implanted directly into the jawbone, dental implants function and feel just like natural teeth. Designed to last a lifetime with proper oral hygiene."
+        },
+        {
+          id: 's4',
+          name: "Cosmetic Dentistry",
+          icon: "fa-wand-magic-sparkles",
+          shortDesc: "Porcelain veneers, smile designing, and aesthetic tooth reshaping.",
+          fullDesc: "Transform your confidence with a customized smile makeover. We fix chipped, gapped, or discolored teeth with ultra-thin porcelain veneers and aesthetic bonding."
+        },
+        {
+          id: 's5',
+          name: "Teeth Whitening",
+          icon: "fa-sparkles",
+          shortDesc: "Safe in-clinic laser whitening to brighten your smile up to 8 shades.",
+          fullDesc: "Get dramatically whiter teeth in under 60 minutes with our safe, professional whitening gel activated by gentle dental light technology."
+        },
+        {
+          id: 's6',
+          name: "Orthodontics (Aligners)",
+          icon: "fa-teeth-open",
+          shortDesc: "Clear invisible aligners and modern braces to straighten crooked teeth.",
+          fullDesc: "Straighten your smile discreetly using custom clear plastic aligners. No uncomfortable metal wires required for most treatment plans."
+        }
+      ],
+
+      // Doctors Array
+      doctors: [
+        {
+          name: "Dr. Ananya Rao",
+          specialty: "Cosmetic Dentist & Implantologist",
+          experience: "12+ Years Experience",
+          bio: "Specializing in aesthetic smile designs and implant surgery with a focus on pain-free treatments.",
+          image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Dr. Vikram Mehta",
+          specialty: "Orthodontist (Braces & Aligners)",
+          experience: "9+ Years Experience",
+          bio: "Expert in adult clear aligners and modern orthodontic solutions for perfect alignment.",
+          image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Dr. Priya Sharma",
+          specialty: "Pediatric & Endodontist Specialist",
+          experience: "8+ Years Experience",
+          bio: "Dedicated to gentle root canal treatments and comfortable pediatric dental care for kids.",
+          image: "https://images.unsplash.com/photo-1594824813566-78a050417933?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+
+      // Testimonials Array
+      testimonials: [
+        {
+          name: "Siddharth Malhotra",
+          role: "Dental Implants Patient",
+          text: "I was extremely nervous about getting dental implants, but Dr. Ananya made the whole process completely painless. Very modern and clean clinic!"
+        },
+        {
+          name: "Neha Kapoor",
+          role: "Clear Aligners Patient",
+          text: "BrightSmile transformed my crooked teeth in just 8 months with invisible aligners. The reception staff is super friendly as well."
+        },
+        {
+          name: "Rajesh Verma",
+          role: "Teeth Whitening Patient",
+          text: "Got my teeth whitened before my wedding. The results were immediate and natural! Highly recommend BrightSmile Studio."
+        }
+      ],
+
+      // FAQs Array
+      faqs: [
+        {
+          q: "Are dental treatments at your clinic pain-free?",
+          a: "Yes! We utilize modern local anesthetics, gentle techniques, and advanced technology to ensure all treatments are completely comfortable and stress-free."
+        },
+        {
+          q: "How often should I visit the dentist for a checkup?",
+          a: "We recommend visiting every 6 months for a routine checkup and professional cleaning to prevent cavities and maintain gum health."
+        },
+        {
+          q: "How long does teeth whitening take?",
+          a: "Our in-clinic laser whitening treatment takes approximately 45 to 60 minutes, delivering instant noticeable results."
+        },
+        {
+          q: "Do you accept health insurance or offers EMI?",
+          a: "Yes, we accept major health insurance policies and offer easy 0% interest monthly installment options for extensive treatments like implants and aligners."
+        }
+      ]
+    };
+
+    /* ==========================================================================
+       INITIALIZE PAGE CONTENT FROM CONFIG OBJECT
+       ========================================================================== */
+    function initClinicWebsite() {
+      // Branding text
+      document.getElementById('brand-name-nav').textContent = CLINIC_CONFIG.clinicName;
+      document.getElementById('footer-brand').textContent = CLINIC_CONFIG.clinicName;
+      document.getElementById('footer-copy-name').textContent = CLINIC_CONFIG.clinicName;
+      
+      // Contact Info
+      document.getElementById('info-address').textContent = CLINIC_CONFIG.address;
+      document.getElementById('info-phone').textContent = CLINIC_CONFIG.phone;
+      document.getElementById('info-email').textContent = CLINIC_CONFIG.email;
+      document.getElementById('info-hours').textContent = CLINIC_CONFIG.openingHours;
+      document.getElementById('footer-phone').textContent = "Phone: " + CLINIC_CONFIG.phone;
+      document.getElementById('footer-email').textContent = "Email: " + CLINIC_CONFIG.email;
+
+      // Quick links
+      document.getElementById('call-btn').href = `tel:${CLINIC_CONFIG.phone.replace(/\s+/g, '')}`;
+      const waMsg = encodeURIComponent(`Hi ${CLINIC_CONFIG.clinicName}, I would like to inquire about booking a dental appointment.`);
+      document.getElementById('whatsapp-btn').href = `https://wa.me/${CLINIC_CONFIG.whatsappNumber}?text=${waMsg}`;
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Render Services
+      renderServices();
+
+      // Render Doctors
+      renderDoctors();
+
+      // Render FAQs
+      renderFAQs();
+
+      // Setup Testimonials
+      setupTestimonials();
+
+      // Setup Before/After Slider
+      setupBeforeAfterSlider();
+    }
+
+    /* RENDER SERVICES CARDS */
+    function renderServices() {
+      const container = document.getElementById('services-grid');
+      container.innerHTML = '';
+
+      CLINIC_CONFIG.services.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.innerHTML = `
+          <div class="service-icon"><i class="fa-solid ${s.icon}"></i></div>
+          <h3>${s.name}</h3>
+          <p>${s.shortDesc}</p>
+          <button class="service-learn-more" onclick="openModal('${s.name}', '${s.fullDesc}')">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    /* RENDER DOCTORS CARDS */
+    function renderDoctors() {
+      const container = document.getElementById('doctors-grid');
+      container.innerHTML = '';
+
+      CLINIC_CONFIG.doctors.forEach(doc => {
+        const card = document.createElement('div');
+        card.className = 'doctor-card';
+        card.innerHTML = `
+          <div class="doctor-img-wrapper">
+            <img src="${doc.image}" alt="${doc.name}">
+          </div>
+          <div class="doctor-info">
+            <h3>${doc.name}</h3>
+            <div class="doctor-specialty">${doc.specialty}</div>
+            <p class="doctor-bio">${doc.bio}</p>
+            <button class="btn btn-secondary" style="width:100%; font-size:0.85rem;" onclick="openModal('${doc.name}', '${doc.specialty}<br><br>${doc.bio}<br><br><strong>Experience:</strong> ${doc.experience}')">View Profile</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    /* RENDER FAQ ACCORDIONS */
+    function renderFAQs() {
+      const container = document.getElementById('faq-wrapper');
+      container.innerHTML = '';
+
+      CLINIC_CONFIG.faqs.forEach(faq => {
+        const item = document.createElement('div');
+        item.className = 'faq-item';
+        item.innerHTML = `
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>${faq.q}</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>${faq.a}</p>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function toggleFaq(el) {
+      const parent = el.parentElement;
+      parent.classList.toggle('active');
+    }
+
+    /* TESTIMONIAL CAROUSEL LOGIC */
+    let currentTestIndex = 0;
+    function setupTestimonials() {
+      updateTestimonial();
+      document.getElementById('prev-test').addEventListener('click', () => {
+        currentTestIndex = (currentTestIndex - 1 + CLINIC_CONFIG.testimonials.length) % CLINIC_CONFIG.testimonials.length;
+        updateTestimonial();
+      });
+      document.getElementById('next-test').addEventListener('click', () => {
+        currentTestIndex = (currentTestIndex + 1) % CLINIC_CONFIG.testimonials.length;
+        updateTestimonial();
+      });
+
+      // Auto-rotate every 6s
+      setInterval(() => {
+        currentTestIndex = (currentTestIndex + 1) % CLINIC_CONFIG.testimonials.length;
+        updateTestimonial();
+      }, 6000);
+    }
+
+    function updateTestimonial() {
+      const item = CLINIC_CONFIG.testimonials[currentTestIndex];
+      document.getElementById('testimonial-text').textContent = `"${item.text}"`;
+      document.getElementById('testimonial-author').textContent = item.name;
+      document.getElementById('testimonial-role').textContent = item.role;
+    }
+
+    /* BEFORE / AFTER DRAGGABLE SLIDER LOGIC */
+    function setupBeforeAfterSlider() {
+      const range = document.getElementById('ba-range');
+      const afterWrapper = document.getElementById('ba-after-wrapper');
+      const handle = document.getElementById('ba-handle');
+
+      range.addEventListener('input', (e) => {
+        const val = e.target.value;
+        afterWrapper.style.width = `${val}%`;
+        handle.style.left = `${val}%`;
+      });
+    }
+
+    /* MODAL WINDOW CONTROLS */
+    function openModal(title, content) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-body').innerHTML = content;
+      document.getElementById('modal-overlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+    }
+
+    /* TOAST NOTIFICATION */
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 3500);
+    }
+
+    /* FORM HANDLER (DEMO BOOKING SYSTEM) */
+    function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('p-name').value;
+      const service = document.getElementById('p-service').value;
+
+      showToast(`Demo Appointment Booked for ${name} (${service})!`);
+      document.getElementById('appointment-form').reset();
+    }
+
+    /* NAVIGATION & UI EVENTS */
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const backToTop = document.getElementById('back-to-top');
+
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(l => {
+      l.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Run Initialization on Load
+    document.addEventListener('DOMContentLoaded', initClinicWebsite);
+  </script>
+</body>
+</html>
